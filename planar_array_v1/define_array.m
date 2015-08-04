@@ -1,4 +1,4 @@
-function [rada,radb,xin,yin,zin,ne]=define_array()
+function [rada,radb,xin,yin,zin,ne,radc]=define_array()
 
 answer=inputdlg('Number of elements:');
 ne=str2num(answer{1});

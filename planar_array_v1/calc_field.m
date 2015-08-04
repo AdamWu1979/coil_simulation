@@ -6,9 +6,6 @@ xp=xpmin:px:xpmax;
 yp=ypmin:py:ypmax;
 zp=zpmin:pz:zpmax;
 
-%xp=-0.06:0.01:0.06;
-%yp=0;
-%zp=0:0.01:0.1;
 
 Nx=size(xp,2);  % No. of grids in x-axis
 Ny=size(yp,2);  % No. of grids in Y-axis
@@ -96,19 +93,21 @@ for a=1:Nx
             %--------------------------------------------------------------------------
             
             for i=1:N
+                R(i)=sqrt(Rx(i).^2+Ry(i).^2+Rz(i).^2);
+
                 Xcross(i)=(dly(i).*Rz(i))-(dlz(i).*Ry(i));
                 Ycross(i)=(dlz(i).*Rx(i))-(dlx(i).*Rz(i));
                 Zcross(i)=(dlx(i).*Ry(i))-(dly(i).*Rx(i));
-                R(i)=sqrt(Rx(i).^2+Ry(i).^2+Rz(i).^2);
+                
             end
             
             %-------------------------------------------------------------------------
             % this will be the biot savarts law equation------------------------------
             %--------------------------------------------------------------------------
             
-            Bx1=(I*u0./(4*pi*(R.^3))).*Xcross;
-            By1=(I*u0./(4*pi*(R.^3))).*Ycross;
-            Bz1=(I*u0./(4*pi*(R.^3))).*Zcross;
+            Bx1=(I*Xcross*u0./(4*pi*(R.^3)));
+            By1=(I*Ycross*u0./(4*pi*(R.^3)));
+            Bz1=(I*Zcross*u0./(4*pi*(R.^3)));
             %--------------------------------------------------------------------------
             % now we have  magnetic field from all current elements in the form of an
             % array named Bx1,By1,Bz1, now its time to add them up to get total
@@ -136,6 +135,6 @@ for a=1:Nx
     end
 end
 close(g);
-B1 = sqrt(BX.^2 + BY.^2 + BZ.^2);
+B1 = sqrt( BX.^2 + BY.^2 + BZ.^2);
 end
 
