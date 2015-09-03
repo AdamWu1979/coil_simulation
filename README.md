@@ -12,5 +12,10 @@ You will need to define the field request area along X, Y and Z. For example if 
 - Yinitial=0;Yfinal=0;Precision=1;
 - Zinitial=0;Zfinal=20;Precision=1;
 
-If you want to plot the resultant field from planar_array you need to use image_slice_B1.m, for circular_array you need to use image_slice_SNR_B1.m
+For planar array:
+- use image_slice_B1.m to plot the resultant field.
+- use plot_planar_array.m to plot the array.
 
+For circular array:
+- use image_slice_SNR_B1.m to plot the resultant field.
+- use plot_array.m to plot the array.
