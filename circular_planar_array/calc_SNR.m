@@ -1,4 +1,6 @@
 function [SNR]=calc_SNR(B1,ne,R)
+%
+% This function computes the SNR
 for ll=1:1:size(B1,1)
     for cc=1:1:size(B1,3)
         for ii=1:1:ne
