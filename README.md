@@ -19,3 +19,6 @@ For planar array:
 For circular array:
 - use image_slice_SNR_B1.m to plot the resultant field.
 - use plot_array.m to plot the array.
+
+Biblio
+- https://www.dropbox.com/s/6u3wtb14pr3tq38/COHEN-ADAD_9780123969736.pdf?dl=0
